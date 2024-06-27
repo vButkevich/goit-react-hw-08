@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import {
   selectContacts,
   selectContactsCount,
-} from "../../redux/contactsSlice";
+} from "../../redux/contacts/selectors";
 import css from "./Contactlist.module.css";
 import Contact from "../Contact/Contact";
 

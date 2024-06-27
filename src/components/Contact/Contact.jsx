@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 //import { deleteContact } from "../../redux/contactsSlice";
-import { deleteContact } from "../../redux/contactsOps";
+import { deleteContact } from "../../redux/contacts/operations";
 
 import { FaAddressCard } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -9,14 +9,24 @@ import { FaBolt } from "react-icons/fa";
 import { format } from "date-fns";
 
 import css from "./Contact.module.css";
+import ContactForm from "../ContactForm/ContactForm";
+import { useState } from "react";
 
 const Contact = ({ data }) => {
   const dispatch = useDispatch();
+  console.log("Contact.data :>> ", data);
+
+  const [editData, setEditData] = useState(null);
   const { id, name, number, dateTimeStamp } = data;
   let date = "";
   if (dateTimeStamp) {
     date = format(new Date(dateTimeStamp), "yyyy-MM-dd HH:mm:ss");
   }
+
+  const handleEdit = (contact) => {
+    setEditData(contact);
+  };
+
   return (
     <li key={id} className={css["contact-item"]}>
       <div className={css.container}>
@@ -48,9 +58,18 @@ const Contact = ({ data }) => {
             </p>
           )}
         </div>
-        <button className={css.btn} onClick={() => dispatch(deleteContact(id))}>
-          Delete
-        </button>
+        <div className={css["container-btn"]}>
+          <button className={css.btn} onClick={() => handleEdit(data)}>
+            Edit
+          </button>
+          <button
+            className={css.btn}
+            onClick={() => dispatch(deleteContact(id))}
+          >
+            Delete
+          </button>
+        </div>
+        {editData && <ContactForm data={editData} />}
       </div>
     </li>
   );

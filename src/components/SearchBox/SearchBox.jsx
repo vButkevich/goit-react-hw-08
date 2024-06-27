@@ -1,7 +1,8 @@
 import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { changeFilterQuery, selectFilterQuery } from "../../redux/filterSlice";
+import { changeFilterQuery } from "../../redux/filter/slice";
+import { selectFilterQuery } from "../../redux/filter/selectors";
 import { FaSearch, FaTimes } from "react-icons/fa";
 
 import css from "./SearchBox.module.css";
