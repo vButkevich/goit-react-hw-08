@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  width: 300px;
+  border: 1px Solid gray;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+input {
+  /* width: 100%; */
+  padding: 10px 10px 10px 10px;
+  border: 1px Solid gray;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  position: relative;
+  width: 100%;
+}
+.form-element {
+  width: 97%;
+}
+.error {
+  color: red;
+  font-weight: 700;
+
+  /* position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  cursor: pointer; */
+}
