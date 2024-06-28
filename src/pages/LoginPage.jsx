@@ -1,11 +1,19 @@
 // import React from "react";
-import LoginForm from "../components/LoginForm.jsx";
+import { useDispatch } from "react-redux";
+import AuthorizationForm from "../components/AuthorizationForm.jsx";
+// import LoginForm from "../components/LoginForm.jsx";
+import { login } from "../redux/auth/operations";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const submitHandle = (values) => {
+    dispatch(login(values));
+  };
   return (
-    <div>
+    <div name="login-page" className="form">
       <h1>Login</h1>
-      <LoginForm />
+      {/* <LoginForm /> */}
+      <AuthorizationForm mode="login" submit={submitHandle} />
     </div>
   );
 };

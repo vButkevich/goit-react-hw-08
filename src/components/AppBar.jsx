@@ -5,10 +5,27 @@ import Navigation from "./Navigation";
 import UserMenu from "./UserMenu";
 import AuthNav from "./AuthNav";
 
+import { FaAddressBook } from "react-icons/fa";
+import {
+  // selectContacts,
+  selectContactsCount,
+} from "../redux/contacts/selectors";
+
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const contactsCount = useSelector(selectContactsCount);
+  const color = "gray";
+
   return (
     <header>
+      <h1>
+        <span>
+          <FaAddressBook color={color} />
+        </span>
+        Contact Book
+        {isLoggedIn ? contactsCount > 0 && <sub>[{contactsCount}]</sub> : ""}
+      </h1>
+
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </header>

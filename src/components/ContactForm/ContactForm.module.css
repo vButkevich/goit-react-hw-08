@@ -1,3 +1,9 @@
+.title {
+  display: flex;
+  align-items: center;
+  /* gap: 24px; */
+  flex-direction: column;
+}
 .form {
   display: flex;
   flex-wrap: wrap;
@@ -6,15 +12,16 @@
   width: 300px;
   border: 1px Solid gray;
   border-radius: 8px;
+  margin: 0 auto;
   padding: 8px;
 }
 
 input {
   /* width: 100%; */
-  padding: 10px 10px 10px 10px;
+  /* padding: 10px 10px 10px 10px; */
+  box-sizing: border-box;
   border: 1px Solid gray;
   border-radius: 4px;
-  box-sizing: border-box;
 }
 
 input[type="text"] {
@@ -33,4 +40,10 @@ input[type="text"] {
   transform: translateY(-50%);
   color: gray;
   cursor: pointer; */
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

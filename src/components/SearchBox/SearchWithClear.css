@@ -23,7 +23,7 @@
 
 .search-input {
   width: 100%;
+  box-sizing: border-box;
   padding: 10px 10px 10px 30px;
   padding-right: 30px; /* Add padding to avoid text overlap with clear icon */
-  box-sizing: border-box;
 }

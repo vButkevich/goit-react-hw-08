@@ -1,17 +1,29 @@
 // import React from "react";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Routes, Route } from "react-router-dom";
+import { lazy, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route, useParams } from "react-router-dom";
 import { refreshUser } from "./redux/auth/operations.js";
-import Layout from "./components/Layout";
 
+import Layout from "./components/Layout";
 import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
 
 import HomePage from "./pages/HomePage";
-import ContactsPage from "./pages/ContactsPage";
 import LoginPage from "./pages/LoginPage";
+import ContactsPage from "./pages/ContactPage/ContactsPage.jsx";
 import RegistrationPage from "./pages/RegistrationPage";
+/*
+const HomePage = lazy(() => import("./pages/HomePage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage"));
+const RegistrationPage = lazy(() => import("./pages/RegistrationPage"));
+*/
+
+import ContactForm from "./components/ContactForm/ContactForm.jsx";
+
+import "./App.css";
+import { selectContacts } from "./redux/contacts/selectors.js";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,26 +33,45 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="register"
-          element={<RestrictedRoute component={RegistrationPage} />}
-        />
-        <Route
-          path="login"
-          element={<RestrictedRoute component={LoginPage} />}
-        />
-        <Route
-          path="contacts"
-          element={<PrivateRoute component={ContactsPage} />}
-        />
-      </Route>
-    </Routes>
+    <>
+      {/* <Layout> */}
+      <Toaster />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="register"
+            element={<RestrictedRoute component={RegistrationPage} />}
+          />
+          <Route
+            path="login"
+            element={<RestrictedRoute component={LoginPage} />}
+          />
+          <Route
+            path="contacts"
+            element={<PrivateRoute component={ContactsPage} />}
+          />
+          <Route
+            path="contact"
+            element={<PrivateRoute component={ContactForm} />}
+          />
+          <Route path="contact/:id" element={<ContactFormWrapper />} />
+        </Route>
+
+        <Route path="*" element={<div>404</div>} />
+      </Routes>
+      {/* </Layout> */}
+    </>
   );
 };
 
+const ContactFormWrapper = () => {
+  const { id } = useParams();
+  const contacts = useSelector(selectContacts);
+  const contact = contacts.find((contact) => contact.id === id);
+  console.log("ContactFormWrapper.contact :>> ", contact);
+  return <ContactForm mode="edit" data={contact} />;
+};
 export default App;
 
 /*import { useEffect } from "react";
@@ -94,7 +125,8 @@ const App = () => {
         />
       )}
       <ContactList />
-    </div>
+      </div>
+      </>
   );
 };
 
