@@ -1,15 +1,11 @@
 import { useSelector } from "react-redux";
-import {
-  selectContacts,
-  // selectContactsCount,
-} from "../../redux/contacts/selectors";
+import { selectContacts } from "../../redux/contacts/selectors";
 import Contact from "../Contact/Contact";
 
 import css from "./Contactlist.module.css";
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
-  // const contactItems = useSelector(selectContactsCount);
 
   return (
     <div name="contact-list" className={css["contact-list"]}>

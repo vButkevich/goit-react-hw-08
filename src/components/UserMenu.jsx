@@ -8,8 +8,8 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const auth = useSelector(selectAuth);
-  console.log("auth :>> ", auth);
-  console.log("user :>> ", user);
+  // console.log("UserMenu.auth :>> ", auth);
+  // console.log("UserMenu.user :>> ", user);
   return (
     <div className={css.logout}>
       <p>

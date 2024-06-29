@@ -89,7 +89,9 @@ button:focus-visible {
     background-color: lightgrey; /*#f9f9f9;*/
   }
 }
-.form {
+
+/* form, */
+/* .form {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -99,4 +101,89 @@ button:focus-visible {
   border-radius: 8px;
   margin: 32px auto;
   padding: 8px;
+} */
+
+.title {
+  display: flex;
+  align-items: center;
+  /* gap: 24px; */
+  flex-direction: column;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 300px;
+  border: 1px Solid gray;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+input {
+  position: relative;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  box-sizing: border-box;
+  border: 1px Solid gray;
+  border-radius: 4px;
+}
+
+input[type="text"] {
+  position: relative;
+  width: 100%;
+}
+.form-element {
+  width: 97%;
+}
+.error {
+  color: red;
+  font-weight: 700;
+
+  /* position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  cursor: pointer; */
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+input {
+  /* width: 100%; */
+  /* padding: 10px 10px 10px 10px; */
+  box-sizing: border-box;
+  border: 1px Solid gray;
+  border-radius: 4px;
+}
+
+input[type="text"] {
+  position: relative;
+  width: 100%;
+}
+.form-element {
+  width: 97%;
+}
+.error {
+  color: red;
+  font-weight: 700;
+
+  /* position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  cursor: pointer; */
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

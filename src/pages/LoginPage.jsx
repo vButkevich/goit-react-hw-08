@@ -10,10 +10,12 @@ const LoginPage = () => {
     dispatch(login(values));
   };
   return (
-    <div name="login-page" className="form">
-      <h1>Login</h1>
+    <div name="login-page">
+      <h1 className="title">Login</h1>
       {/* <LoginForm /> */}
-      <AuthorizationForm mode="login" submit={submitHandle} />
+      <div className="form">
+        <AuthorizationForm mode="login" submit={submitHandle} />
+      </div>
     </div>
   );
 };

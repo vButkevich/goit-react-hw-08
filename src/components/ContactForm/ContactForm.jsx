@@ -17,9 +17,9 @@ const ContactForm = ({ mode = "new", data = {} }) => {
 
   const formLabel = mode === "new" ? "New Contact" : "Edit Contact";
 
-  console.log("ContactForm.mode :>> ", mode);
-  console.log("ContactForm.data :>> ", data);
-  console.log("ContactForm.data.len :>> ", data.arguments);
+  // console.log("ContactForm.mode :>> ", mode);
+  // console.log("ContactForm.data :>> ", data);
+  // console.log("ContactForm.data.len :>> ", data.arguments);
 
   const nameFieldId = useId();
   const numberFieldId = useId();
@@ -34,7 +34,7 @@ const ContactForm = ({ mode = "new", data = {} }) => {
           name: data.name,
           number: data.number,
         };
-  console.log("initialValues :>> ", initialValues);
+  // console.log("initialValues :>> ", initialValues);
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -49,14 +49,14 @@ const ContactForm = ({ mode = "new", data = {} }) => {
 
   const handleSubmit = async (values, { resetForm }) => {
     if (mode === "new") {
-      console.log("New.submit:values :>> ", values);
+      // console.log("New.submit:values :>> ", values);
       await dispatch(addContact(values));
       toast.success("Contact added successfully");
     }
     if (mode === "edit") {
-      console.log("Edit.submit:values :>> ", values);
-      console.log("Edit.submit:id :>> ", data.id);
-      console.log("Edit.submit:values :>> ", values);
+      // console.log("Edit.submit:values :>> ", values);
+      // console.log("Edit.submit:id :>> ", data.id);
+      // console.log("Edit.submit:values :>> ", values);
       await dispatch(updateContact({ id: data.id, values: values }));
       toast.success("Contact updated successfully");
     }

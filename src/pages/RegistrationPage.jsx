@@ -10,10 +10,12 @@ const RegistrationPage = () => {
     dispatch(register(values));
   };
   return (
-    <div name="registration-page" className="form">
-      <h1>Register</h1>
+    <div name="registration-page">
+      <h1 className="title">Register</h1>
       {/* <RegistrationForm /> */}
-      <AuthorizationForm mode="registration" submit={submitHandle} />
+      <div className="form">
+        <AuthorizationForm mode="registration" submit={submitHandle} />
+      </div>
     </div>
   );
 };

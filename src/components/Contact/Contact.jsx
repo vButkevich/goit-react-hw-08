@@ -7,7 +7,7 @@ import { FaAddressCard } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaBolt } from "react-icons/fa";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import toast from "react-hot-toast";
@@ -19,19 +19,19 @@ import { useState } from "react";
 
 const Contact = ({ data }) => {
   const dispatch = useDispatch();
-  console.log("Contact.data :>> ", data);
+  // console.log("Contact.data :>> ", data);
 
   // const [editData, setEditData] = useState(null);
   const { id, name, number, dateTimeStamp } = data;
-  let date = "";
-  if (dateTimeStamp) {
-    date = format(new Date(dateTimeStamp), "yyyy-MM-dd HH:mm:ss");
-  }
+  // let date = "";
+  // if (dateTimeStamp) {
+  //   date = format(new Date(dateTimeStamp), "yyyy-MM-dd HH:mm:ss");
+  // }
 
   const navigate = useNavigate();
   const handleEdit = (contact) => {
-    console.log("handleEdit.contact :>> ", contact);
-    console.log("handleEdit.contact.id :>> ", contact.id);
+    // console.log("handleEdit.contact :>> ", contact);
+    // console.log("handleEdit.contact.id :>> ", contact.id);
     navigate(`/contact/${id}`);
     // setEditData(contact);
   };
@@ -46,10 +46,10 @@ const Contact = ({ data }) => {
   };
 
   const confirmDelete = async () => {
-    console.log("confirmDelete :>> ", contactToDelete);
+    // console.log("confirmDelete :>> ", contactToDelete);
     await dispatch(deleteContact(contactToDelete.id));
     toast.success("Contact deleted successfully");
-    setIsModalOpen(false);
+    // setIsModalOpen(false);
   };
 
   return (
