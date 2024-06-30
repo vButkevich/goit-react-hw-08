@@ -6,10 +6,8 @@ import { deleteContact } from "../../redux/contacts/operations";
 import { FaAddressCard } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
-import { FaBolt } from "react-icons/fa";
-
-import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
-import toast from "react-hot-toast";
+// import { FaBolt } from "react-icons/fa";
+// import toast from "react-hot-toast";
 
 import css from "./Contact.module.css";
 
