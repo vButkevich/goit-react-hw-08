@@ -32,15 +32,6 @@ const authSlice = createSlice({
       })
       // login ---------------------------------
       .addCase(login.fulfilled, (state, action) => {
-        console.log("login.fulfilled:action.payload :>> ", action.payload);
-        console.log(
-          "login.fulfilled:action.payload.user :>> ",
-          action.payload.user
-        );
-        console.log(
-          "login.fulfilled:action.payload.token :>> ",
-          action.payload.token
-        );
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
@@ -56,12 +47,7 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        console.log(
-          "refreshUser.fulfilled:action.payload :>> ",
-          action.payload
-        );
         state.user = action.payload;
-        //state.token = action.payload.token;
         state.isRefreshing = false;
         state.isLoggedIn = true;
       })

@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../redux/auth/selectors.js";
 import Navigation from "./Navigation";
-import UserMenu from "./UserMenu";
+import UserMenu from "./UserMenu/UserMenu.jsx";
 import AuthNav from "./AuthNav";
 
 import { FaAddressBook } from "react-icons/fa";

@@ -5,7 +5,6 @@ import { filterReducer } from "./filter/slice";
 import { authReducer } from "./auth/slice";
 
 import storage from "redux-persist/lib/storage";
-// import { persistReducer, persistStore } from "redux-persist";
 import {
   persistStore,
   persistReducer,
@@ -16,12 +15,6 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-
-// const rootReducer = combineReducers({
-//   auth: authReducer,
-//   contacts: contactsReducer,
-//   filter: filterReducer,
-// });
 
 const auth_persistConfig = {
   key: "token",
@@ -38,7 +31,6 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        // ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),

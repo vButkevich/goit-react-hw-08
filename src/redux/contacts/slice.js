@@ -30,7 +30,6 @@ const contactsSlice = createSlice({
         contactsPending(state);
       })
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
-        // console.log("fetchContacts.fulfilled :>> ", payload);
         state.isLoading = false;
         state.items = payload;
       })
@@ -42,7 +41,6 @@ const contactsSlice = createSlice({
         contactsPending(state);
       })
       .addCase(addContact.fulfilled, (state, { payload }) => {
-        // console.log("addContact.fulfilled.push:payload :>> ", payload);
         state.isLoading = false;
         state.items.push(payload);
       })
@@ -62,14 +60,10 @@ const contactsSlice = createSlice({
       })
       // PATCH:(update/edit)-----------------------------------
       .addCase(updateContact.pending, (state, { payload }) => {
-        // console.log("updatte.pending:state :>> ", state);
-        // console.log("updatte.pending:payload :>> ", payload);
         contactsPending(state);
       })
       .addCase(updateContact.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        // console.log("updatte.fulfilled:payload :>> ", payload);
-        //state.items = payload;
         const index = state.items.findIndex(
           (contact) => contact.id === payload.id
         );
@@ -78,26 +72,9 @@ const contactsSlice = createSlice({
         }
       })
       .addCase(updateContact.rejected, (state, { payload }) => {
-        // console.log("updatte.rejected:payload :>> ", payload);
         contactsRejected(state, payload);
       });
     //---------------------------------------------------------
-    /*
-        .addCase(updateContact.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(updateContact.fulfilled, (state, action) => {
-        state.isLoading = false;
-        const index = state.items.findIndex(contact => contact.id === action.payload.id);
-        if (index !== -1) {
-          state.items[index] = action.payload;
-        }
-      })
-      .addCase(updateContact.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
-      */
   },
 });
 

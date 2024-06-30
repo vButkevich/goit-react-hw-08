@@ -1,15 +1,14 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { fetchContacts } from "../../redux/contacts/operations";
 import Contacts from "../../components/ContactList/ContactList";
 import ContactFilter from "../../components/SearchBox/SearchBox";
-import { fetchContacts } from "../../redux/contacts/operations";
 import css from "./ContactsPage.module.css";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 
 const ContactsPage = () => {
   const navigate = useNavigate();
   const handleAddContact = () => {
-    // console.log("handleNewContact :>> ", handleAddContact);
     navigate("/contact");
   };
   const dispatch = useDispatch();
@@ -22,7 +21,6 @@ const ContactsPage = () => {
       <button type="button" onClick={() => handleAddContact()}>
         Add New Contact
       </button>
-      {/* <Link to="/contact">Add New Contact</Link> */}
       <ContactFilter />
       <Contacts />
     </div>
