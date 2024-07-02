@@ -1,6 +1,6 @@
 // import React from "react";
 import { Formik, Form, Field } from "formik";
-import css from "../components/ContactForm/ContactForm";
+import css from "../ContactForm/ContactForm";
 
 const AuthorizationForm = ({ mode = "login", submit = { submit } }) => {
   const handleSubmit = (values, { resetForm }) => {

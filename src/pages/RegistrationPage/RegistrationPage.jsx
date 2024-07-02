@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import AuthorizationForm from "../../components/AuthorizationForm.jsx";
+import AuthorizationForm from "../../components/AuthorizationForm/AuthorizationForm.jsx";
 import { register } from "../../redux/auth/operations.js";
 
 const RegistrationPage = () => {

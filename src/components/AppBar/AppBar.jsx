@@ -1,15 +1,12 @@
 // import React from "react";
 import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "../redux/auth/selectors.js";
-import Navigation from "./Navigation";
-import UserMenu from "./UserMenu/UserMenu.jsx";
-import AuthNav from "./AuthNav";
+import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
+import Navigation from "../Navigation/Navigation.jsx";
+import UserMenu from "../UserMenu/UserMenu.jsx";
+import AuthNav from "../AuthNav/AuthNav.jsx";
 
 import { FaAddressBook } from "react-icons/fa";
-import {
-  // selectContacts,
-  selectContactsCount,
-} from "../redux/contacts/selectors";
+import { selectContactsCount } from "../../redux/contacts/selectors.js";
 
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);

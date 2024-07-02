@@ -23,6 +23,13 @@ const contactsSlice = createSlice({
     isLoading: false,
     hasError: null,
   },
+  reducers: {
+    resetContacts: (state) => {
+      state.items = [];
+      state.isLoading = false;
+      state.hasError = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       // GET:(get/fetch)---------------------------------------
@@ -59,7 +66,7 @@ const contactsSlice = createSlice({
         contactsRejected(state, payload);
       })
       // PATCH:(update/edit)-----------------------------------
-      .addCase(updateContact.pending, (state, { payload }) => {
+      .addCase(updateContact.pending, (state) => {
         contactsPending(state);
       })
       .addCase(updateContact.fulfilled, (state, { payload }) => {
@@ -74,8 +81,8 @@ const contactsSlice = createSlice({
       .addCase(updateContact.rejected, (state, { payload }) => {
         contactsRejected(state, payload);
       });
-    //---------------------------------------------------------
   },
 });
 
+export const { resetContacts } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
